@@ -1,0 +1,28 @@
+import random
+
+number=str(random.randint(1, 1000))
+score=100
+chubster=1
+print ("Start\n\n\n\n\n\nRules:\nGuess the number, if you get it wrong, then the computer will tell you to go higher or lower\nType exit to exit\nType answer or reveal for the computer to give its number\n\n")
+print ("Guess the number")
+while (3>chubster):
+	chub=raw_input()
+	print (number)
+	if (chub=="exit"):
+		break
+	elif (chub=="answer" or chub=="reveal"):
+		print (number)
+	elif (number==chub):
+		print ("Your score is {}".format(score))
+		print ("You win")
+		break
+	elif (number<chub):
+		print ("Your score is {}".format(score))
+		print ("The number is lower")
+		score=score-1
+	elif (number>chub):
+		print ("Your score is {}".format(score))
+		print ("The number is higher")
+		score=score-1
+	else:
+		print ("Sorry, we cant accept that answer, please try again")
