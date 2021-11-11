@@ -1,28 +1,31 @@
 import random
-
-number=str(random.randint(1, 1000))
+print ("\n\n\n\n\nFirst enter the max of what your number can be (higher means harder)")
+print ("\nAfter you enter that you can start playing")
+print ("\nRules: Guess the number, if you get it wrong, then the computer will tell you to go higher or lower")
+print ("\nIf you want to end the program at any time, type 0\n\n")
+chuble=int(input("Max: "))
+print ("\n\nPlay\n\n")
+number=random.randint(1, chuble)
 score=100
 chubster=1
-print ("Start\n\n\n\n\n\nRules:\nGuess the number, if you get it wrong, then the computer will tell you to go higher or lower\nType exit to exit\nType answer or reveal for the computer to give its number\n\n")
-print ("Guess the number")
 while (3>chubster):
-	chub=raw_input()
-	print (number)
-	if (chub=="exit"):
-		break
-	elif (chub=="answer" or chub=="reveal"):
-		print (number)
-	elif (number==chub):
-		print ("Your score is {}".format(score))
-		print ("You win")
-		break
-	elif (number<chub):
-		print ("Your score is {}".format(score))
-		print ("The number is lower")
-		score=score-1
-	elif (number>chub):
-		print ("Your score is {}".format(score))
-		print ("The number is higher")
-		score=score-1
-	else:
-		print ("Sorry, we cant accept that answer, please try again")
+	try:
+		chub=int(input())
+		if (number==chub):
+			print ("Your score is {}".format(score))
+			print ("You win")
+			break
+		elif (0<number<chub<chuble):
+			print ("Your score is {}".format(score))
+			print ("The number is lower")
+			score=score-1
+		elif (0<chub<number<chuble):
+			print ("Your score is {}".format(score))
+			print ("The number is higher")
+			score=score-1
+		elif (chub==0):
+			break
+		else:
+			print ("Sorry, we cant accept numbers that are negative, or out of range")
+	except:
+		print ("Please only enter integers")
